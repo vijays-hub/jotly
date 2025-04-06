@@ -13,15 +13,19 @@ const ASSETS_TO_CACHE = [
   "/assets/screenshots/desktop_app.png",
   "/assets/screenshots/mobile.png",
   "/assets/screenshots/tab.png",
-  "/assets/screenshots/master_logo.png",
+  "/assets/master_logo.png",
 
   // Favicon
-  "/assets/favicon/apple-touch-icon.png",
-  "/assets/favicon/favicon-96x96.png",
-  "/assets/favicon/favicon.ico",
-  "/assets/favicon/favicon.svg",
-  "/assets/favicon/web-app-manifest-192x192.png",
-  "/assets/favicon/web-app-manifest-512x512.png",
+  "/favicon/apple-touch-icon.png",
+  "/favicon/favicon-96x96.png",
+  "/favicon/favicon.ico",
+  "/favicon/favicon.svg",
+  "/favicon/web-app-manifest-192x192.png",
+  "/favicon/web-app-manifest-512x512.png",
+
+  //   Offline Sheez
+  "/offline.html",
+  "/assets/offline_image.webp",
 ];
 
 // 🔹 Install event — Cache App Shell (assets)
@@ -30,7 +34,7 @@ self.addEventListener("install", function (event) {
 
   const precacheAssets = async () => {
     const cache = await caches.open(CACHE_NAME);
-    cache.addAll(ASSETS_TO_CACHE);
+    return cache.addAll(ASSETS_TO_CACHE);
   };
 
   event.waitUntil(precacheAssets());
