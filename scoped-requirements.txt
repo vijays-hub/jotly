@@ -1,0 +1,7 @@
+PWA Notes App — but with:
+- Offline-first with service worker
+- Background Sync to store notes when back online
+- Push Notifications for reminders (even when app is closed)
+- Local IndexedDB storage for offline content
+- Installable (add to homescreen)
+- Works perfectly on mobile and desktop
