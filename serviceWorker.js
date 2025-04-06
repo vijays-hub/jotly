@@ -28,6 +28,8 @@ const ASSETS_TO_CACHE = [
   "/assets/offline_image.webp",
 ];
 
+const OFFLINE_URL = "/"; // Will be pointing to offline.html in the future.
+
 // 🔹 Install event — Cache App Shell (assets)
 self.addEventListener("install", function (event) {
   console.log("📦 Installing Service Worker...");
@@ -79,4 +81,24 @@ self.addEventListener("activate", function (event) {
    * MDN - https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim
    */
   self.clients.claim();
+});
+
+self.addEventListener("fetch", function (event) {
+  if (event.request.mode === "navigate") {
+    // Navigation Request (HTML Page)
+
+    const serveOfflineApp = async function () {
+      // The catch will be triggered if the network request fails - likely because user is offline
+      return fetch(event.request).catch((error) => caches.match(OFFLINE_URL));
+    };
+
+    event.respondWith(serveOfflineApp());
+  } else {
+    // Cache first.
+    event.respondWith(
+      caches
+        .match(event.request)
+        .then((cacheResponse) => cacheResponse || fetch(event.request))
+    );
+  }
 });
