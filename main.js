@@ -16,3 +16,18 @@ submitButton.addEventListener("click", function () {
   saveNoteLocally(note);
   noteInput.value = "";
 });
+
+// Service Worker for offline Support + Syncs!
+function registerServiceWorker() {
+  if (!"serviceWorker" in navigator) return;
+  navigator.serviceWorker
+    .register("serviceWorker.js")
+    .then((registration) => {
+      console.info("⚙️ ✅ Registered the Service Worker", registration);
+    })
+    .catch((error) => {
+      console.error("❌ Failed to register the Service Worker", error);
+    });
+}
+
+registerServiceWorker();
