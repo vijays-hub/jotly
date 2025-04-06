@@ -30,3 +30,9 @@ textarea {
   width: 5rem;
   height: 2.5rem;
 }
+
+#notes_list_container {
+  width: 100%;
+  max-width: 80vw;
+  margin: auto;
+}
