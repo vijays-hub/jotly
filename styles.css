@@ -9,6 +9,10 @@
   font-family: "Virgil";
 }
 
+body {
+  padding: 3rem 0;
+}
+
 #logo {
   width: 150px;
   height: 150px;
