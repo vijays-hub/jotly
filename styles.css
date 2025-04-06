@@ -45,3 +45,18 @@ textarea {
   max-width: 80vw;
   margin: auto;
 }
+
+.offline_page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 5rem;
+}
+
+.offline_image {
+  max-width: 50vw;
+  margin-bottom: 2rem;
+}
