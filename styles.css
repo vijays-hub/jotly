@@ -9,6 +9,11 @@
   font-family: "Virgil";
 }
 
+#logo {
+  width: 150px;
+  height: 150px;
+}
+
 #note_collection_area {
   margin: auto;
   display: flex;
